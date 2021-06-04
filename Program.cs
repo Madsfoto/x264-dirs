@@ -57,7 +57,7 @@ namespace x264_dirs
                         }
                         // profileInt==5 supports everything. High444 supports everything
 
-                        name = profileInt+profileArr[profileInt] + "-" + presetInt+presetArr[presetInt] + "-"+pix_fmtArr[pix_fmtInt];
+                        name = profileInt+profileArr[profileInt] + "-" + presetInt+presetArr[presetInt] + "-"+pix_fmtInt+pix_fmtArr[pix_fmtInt];
                         output.Add(name);
                     }
                     
