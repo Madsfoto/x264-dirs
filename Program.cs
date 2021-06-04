@@ -33,31 +33,38 @@ namespace x264_dirs
                         // don't create folders for stuff that doesn't work
                         if(profileInt == 0||profileInt==1||profileInt==2)
                         {
-                            if (pix_fmtInt!=0)
+                            if (pix_fmtInt==0)
                             {
-                                break;
+                                //supported
+                                name = profileInt + profileArr[profileInt] + "-" + presetInt + presetArr[presetInt] + "-" + pix_fmtInt + pix_fmtArr[pix_fmtInt];
                             }
                             
                         }
                         if(profileInt==3)
                         {
-                            if(pix_fmtInt!=0||pix_fmtInt!=3)
+                            if(pix_fmtInt==0||pix_fmtInt==3)
                             {
-                                break;
+                                //supported
+                                name = profileInt + profileArr[profileInt] + "-" + presetInt + presetArr[presetInt] + "-" + pix_fmtInt + pix_fmtArr[pix_fmtInt];
                             }
+                            
                         }
                         
-                        // switching gears, as High422 supports more formats than it does not, so it's easier to break when we meet a format that high422 does not support
+                        
                         if (profileInt == 4)
                         {
-                            if (pix_fmtInt == 2 || pix_fmtInt == 5)
+                            if(pix_fmtInt==0||pix_fmtInt==1||pix_fmtInt==3||pix_fmtInt==4)
                             {
-                                break;
+                                name = profileInt + profileArr[profileInt] + "-" + presetInt + presetArr[presetInt] + "-" + pix_fmtInt + pix_fmtArr[pix_fmtInt];
                             }
+                            
                         }
                         // profileInt==5 supports everything. High444 supports everything
-
-                        name = profileInt+profileArr[profileInt] + "-" + presetInt+presetArr[presetInt] + "-"+pix_fmtInt+pix_fmtArr[pix_fmtInt];
+                        if(profileInt==5)
+                        {
+                            name = profileInt + profileArr[profileInt] + "-" + presetInt + presetArr[presetInt] + "-" + pix_fmtInt + pix_fmtArr[pix_fmtInt];
+                        }
+                        
                         output.Add(name);
                     }
                     
